@@ -1,0 +1,41 @@
+<h3> <%= @tamagotchi.name %> </h3>
+<p> Is it alive? <%= @tamagotchi.alive %> </p>
+
+<br>
+
+<p>Activity: <%= @tamagotchi.activity_level %> </p>
+<p>Food: <%= @tamagotchi.food_level %> </p>
+<p>Sleep: <%= @tamagotchi.sleep_level %> </p>
+
+<br>
+
+<% if @tamagotchi.alive? %>
+  <form action='/tamagotchi_play' method='post'>
+    <input type='hidden' name='id' value='<%= @tamagotchi.id %>'>
+    <button type='submit'>Play with it.</button>
+  </form>
+  <br>
+
+  <form action='/tamagotchi_feed' method='post'>
+    <input type='hidden' name='id' value='<%= @tamagotchi.id %>'>
+    <button type='submit'>Feed it.</button>
+  </form>
+  <br>
+
+  <form action='/tamagotchi_sleep' method='post'>
+    <input type='hidden' name='id' value='<%= @tamagotchi.id %>'>
+    <button type='submit'>Put it to bed.</button>
+  </form>
+
+  <br>
+
+  <form action='/tamagotchi_murder' method='post'>
+    <input type='hidden' name='id' value='<%= @tamagotchi.id %>'>
+    <button type='submit'>Coldly murder your pet ending the farce of existence.</button>
+  </form>
+
+<% else %>
+
+  <p> You killed it jerk.  </p>
+
+<% end %>

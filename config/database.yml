@@ -1,0 +1,9 @@
+development:
+  database: tamagotchi_development
+  adapter: postgresql
+  template: template0
+
+test:
+  database: tamagotchi_test
+  adapter: postgresql
+  template: template0

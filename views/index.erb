@@ -1,0 +1,23 @@
+<h3>Your Army of Tamagotchis</h3>
+<br>
+<% if @tamagotchis.any? %>
+  <ul>
+  <% @tamagotchis.each do |tamagotchi| %>
+    <li><a href='tamagotchi/<%= tamagotchi.id %>'> <%= tamagotchi.name %></a></li>
+  <% end %>
+  <ul>
+    <% else %>
+      <p>You have not created your horde of Tamagotchis yet.</p>
+<% end %>
+
+<br>
+
+<form action='/tamagotchi_add' method='post'>
+  <label for='name'>Enter a name for your tamagotchi:</label>
+  <input type='text' name='name' id='name'>
+
+  <br>
+
+  <button type='submit'>Add Tamagotchi</button>
+
+</form>
