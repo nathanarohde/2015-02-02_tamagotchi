@@ -10,9 +10,9 @@ class Tamagotchi < ActiveRecord::Base
 
   def is_alive
     if (activity_level > 0) & (food_level > 0) & (sleep_level > 0)
-      alive = true
+      self.alive = true
     else
-      alive = false
+      self.alive = false
     end
     self.save
   end

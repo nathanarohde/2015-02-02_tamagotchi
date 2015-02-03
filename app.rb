@@ -27,12 +27,8 @@ post '/tamagotchi_play' do
   @tamagotchi = Tamagotchi.find(params['id'].to_i)
   @tamagotchi.time_passes
   activity_level = @tamagotchi.set_activity_level(10)
-  food_level = @tamagotchi.food_level
-  sleep_level = @tamagotchi.sleep_level
 
   alive = @tamagotchi.is_alive
-
-  @tamagotchi.update ({:activity_level => activity_level, :food_level => food_level, :sleep_level =>sleep_level, :alive => alive})
 
   redirect back
 end
@@ -41,12 +37,8 @@ post '/tamagotchi_feed' do
   @tamagotchi = Tamagotchi.find(params['id'].to_i)
   @tamagotchi.time_passes
   food_level = @tamagotchi.set_food_level(10)
-  activity_level = @tamagotchi.activity_level
-  sleep_level = @tamagotchi.sleep_level
 
   alive = @tamagotchi.is_alive
-
-  @tamagotchi.update ({:activity_level => activity_level, :food_level => food_level, :sleep_level =>sleep_level, :alive => alive})
 
   redirect back
 end
@@ -55,12 +47,8 @@ post '/tamagotchi_sleep' do
   @tamagotchi = Tamagotchi.find(params['id'].to_i)
   @tamagotchi.time_passes
   sleep_level = @tamagotchi.set_sleep_level(10)
-  activity_level = @tamagotchi.activity_level
-  food_level = @tamagotchi.food_level
 
   alive = @tamagotchi.is_alive
-
-  @tamagotchi.update ({:activity_level => activity_level, :food_level => food_level, :sleep_level =>sleep_level, :alive => alive})
 
   redirect back
 end
@@ -71,9 +59,6 @@ post '/tamagotchi_murder' do
   sleep_level = @tamagotchi.set_sleep_level(0)
   activity_level = @tamagotchi.set_activity_level(0)
   alive = @tamagotchi.is_alive
-
-  @tamagotchi.update ({:activity_level => activity_level, :food_level => food_level, :sleep_level =>sleep_level, :alive => alive})
-
 
   redirect back
 end
